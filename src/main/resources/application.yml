@@ -1,0 +1,41 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwtsecurity
+    username: sujin
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          okta:
+#            signing:
+#              credentials:
+#                - private-key-location: classpath:local.key
+#                  certificate-location: classpath:local.crt
+#            singlelogout:
+#              binding: POST
+#              response-url: "{baseUrl}/logout/saml2/slo"
+            assertingparty:
+              metadata-uri: https://dev-68623886.okta.com/app/exk8l4wcdk9DPNptm5d7/sso/saml/metadata
+
+#saml:
+#  keystore:
+#    location: classpath:/saml/samlKeystore.jks
+#    password: 123456
+#    alias: okta
+#  metadataUrl: https://dev-68623886.okta.com/app/dev-68623886_test_1/exk8he315sjJXBXnn5d7/sso/saml
+#  idp: http://www.okta.com/exk8he315sjJXBXnn5d7
+#  sp: http://localhost:8080/saml/metadata
+
